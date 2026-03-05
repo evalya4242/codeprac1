@@ -1,0 +1,95 @@
+class SLLNode {
+    int element;
+    SLLNode next;
+
+    public SLLNode(int e) {
+        element = e;
+        next = null;
+    }
+}
+
+class UnorderedSLL {
+    SLLNode head;
+
+    public UnorderedSLL() {
+        head = null;
+    }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public void addFirst(int e) {
+        SLLNode n = new SLLNode(e);
+        n.next = head;
+        head = n;
+    }
+
+    public void addLast(int e) {
+        SLLNode n = new SLLNode(e);
+
+        if (head == null) {
+            head = n;
+            return;
+        }
+
+        SLLNode ptr = head;
+
+        while (ptr.next != null) {
+            ptr = ptr.next;
+        }
+
+        ptr.next = n;
+    }
+
+    public void print() {
+        SLLNode ptr = head;
+
+        while (ptr != null) {
+            System.out.print(ptr.element + " ");
+            ptr = ptr.next;
+        }
+
+        System.out.println();
+    }
+
+    public int findMax() {
+        int max = head.element;
+        SLLNode ptr = head;
+
+        while (ptr != null) {
+            if (ptr.element > max) {
+                max = ptr.element;
+            }
+            ptr = ptr.next;
+        }
+
+        return max;
+    }
+
+    public int sumEven() {
+        int sum = 0;
+        SLLNode ptr = head;
+
+        while (ptr != null) {
+            if (ptr.element % 2 == 0) {
+                sum += ptr.element;
+            }
+            ptr = ptr.next;
+        }
+
+        return sum;
+    }
+
+    public int length() {
+        int count = 0;
+        SLLNode ptr = head;
+
+        while (ptr != null) {
+            count++;
+            ptr = ptr.next;
+        }
+
+        return count;
+    }
+}
