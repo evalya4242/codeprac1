@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String[] args) {
+
+        UnorderedSLL list = new UnorderedSLL();
+
+        list.addLast(10);
+        list.addLast(7);
+        list.addLast(3);
+        list.addLast(8);
+        list.addFirst(12);
+
+        list.print();
+
+        System.out.println("Length: " + list.length());
+        System.out.println("Max: " + list.findMax());
+        System.out.println("Sum of Even Numbers: " + list.sumEven());
+    }
+}
